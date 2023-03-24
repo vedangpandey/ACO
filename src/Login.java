@@ -7,9 +7,11 @@ public class Login extends JFrame implements ActionListener{
         Login(){
             getContentPane().setBackground(Color.WHITE);
             setSize(1200,600);
-            setLocation(200,50);
-            ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/login.jpeg"));
-            JLabel image=new JLabel(i1);
+            setLocation(200,100);
+            ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/login.png"));
+            Image i2=i1.getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT);
+            ImageIcon i3=new ImageIcon(i2);
+            JLabel image=new JLabel(i3);
             add(image);
             setLayout(null);
             image.setBounds(0,0,600,600);
@@ -17,12 +19,12 @@ public class Login extends JFrame implements ActionListener{
             JLabel heading=new JLabel("ACO");
             heading.setBounds(780,60,100,50);
             heading.setFont(new Font("Viner Hand ITC",Font.BOLD,40));
-            heading.setForeground(new Color(30,144,225));
+            heading.setForeground(new Color(94, 66, 48));
             add(heading);
             JLabel name=new JLabel("Enter Your Name:");
             name.setBounds(780,140,300,30);
             name.setFont(new Font("Mongolian Baiti",Font.BOLD,18));
-            name.setForeground(new Color(30,144,225));
+            name.setForeground(new Color(94, 66, 48));
             add(name);
             tfname= new JTextField();
             tfname.setBounds(720,220,300,30);
@@ -31,14 +33,14 @@ public class Login extends JFrame implements ActionListener{
 
             rules=new JButton("Rules");
             rules.setBounds(730,260,120,25);
-            rules.setBackground(new Color(30,144,254));
+            rules.setBackground(new Color(	94, 66, 48));
             rules.setForeground(Color.white);
             rules.addActionListener(this);
             add(rules);
 
             exit=new JButton("Exit");
             exit.setBounds(895,260,120,25);
-            exit.setBackground(new Color(30,144,254));
+            exit.setBackground(new Color(94, 66, 48));
             exit.setForeground(Color.white);
             exit.addActionListener(this);
             add(exit);

@@ -13,7 +13,7 @@ public class Rules extends JFrame implements ActionListener{
         JLabel heading=new JLabel("Welcome "+ name + " to ACO");
         heading.setBounds(100,20,700,100);
         heading.setFont(new Font("Viner Hand ITC",Font.BOLD,40));
-        heading.setForeground(new Color(30,144,225));
+        heading.setForeground(new Color(94, 66, 48));
         add(heading);
         JLabel rules=new JLabel();
         rules.setBounds(80,80,700,350);
@@ -30,14 +30,14 @@ public class Rules extends JFrame implements ActionListener{
 
         exit=new JButton("Exit");
         exit.setBounds(320,360,120,25);
-        exit.setBackground(new Color(30,144,254));
+        exit.setBackground(new Color(94, 66, 48));
         exit.setForeground(Color.white);
         exit.addActionListener(this);
         add(exit);
 
         start=new JButton("Start");
         start.setBounds(170,360,120,25);
-        start.setBackground(new Color(30,144,254));
+        start.setBackground(new Color(94, 66, 48));
         start.setForeground(Color.white);
         start.addActionListener(this);
         add(start);
@@ -48,7 +48,8 @@ public class Rules extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==start){
-
+            setVisible(false);
+            new Quiz(name);
         }
         else if(ae.getSource()==exit){
             setVisible(false);
