@@ -6,6 +6,8 @@ public class Rules extends JFrame implements ActionListener{
     String name;JButton exit,start;
     Rules(String name) {
         this.name=name;
+        ImageIcon img=new ImageIcon(ClassLoader.getSystemResource("icons/score.png"));
+        setIconImage(img.getImage());
         getContentPane().setBackground(Color.white);
         setSize(700,550);
         setLocation(350,150);
@@ -49,7 +51,7 @@ public class Rules extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==start){
             setVisible(false);
-            new Quiz(name);
+            new Dashboard(name);
         }
         else if(ae.getSource()==exit){
             setVisible(false);

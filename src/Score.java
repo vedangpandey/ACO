@@ -6,10 +6,13 @@ import java.awt.event.*;
 public class Score extends JFrame implements ActionListener {
 
 
-    JButton Submit;
-    Score(String name ,int score){
+    JButton playagain,WrongAns;
+    String wa[][];
+    Score(String name ,int score,String[][] wrongans){
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
+        ImageIcon img=new ImageIcon(ClassLoader.getSystemResource("icons/score.png"));
+        setIconImage(img.getImage());
         ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/score.png"));
         Image i2=i1.getImage().getScaledInstance(300,250,Image.SCALE_DEFAULT);
         ImageIcon i3=new ImageIcon(i2);
@@ -17,7 +20,7 @@ public class Score extends JFrame implements ActionListener {
         image.setBounds(0,320,300,250);
         add(image);
 
-        JLabel heading=new JLabel("Thankyou "+name+" for playing Simple Minds");
+        JLabel heading=new JLabel("Thank You "+name+" for completing the test.");
         heading.setBounds(45,30,800,30);
         heading.setFont(new Font("Tahoma",Font.PLAIN,26));
         heading.setForeground(new Color(94, 66, 48));
@@ -30,24 +33,36 @@ public class Score extends JFrame implements ActionListener {
         add(lblscore);
 
 
-        Submit=new JButton("Play Again");
-        Submit.setBounds(400, 270,200,40);
-        Submit.setFont(new Font("Tahoma",Font.PLAIN,22));
-        Submit.setBackground(new Color(94, 66, 48));
-        Submit.setForeground(Color.white);
-        Submit.addActionListener(this);
-        add(Submit);
+        playagain=new JButton("Play Again");
+        playagain.setBounds(400, 270,200,40);
+        playagain.setFont(new Font("Tahoma",Font.PLAIN,22));
+        playagain.setBackground(new Color(94, 66, 48));
+        playagain.setForeground(Color.white);
+        playagain.addActionListener(this);
+        add(playagain);
+
+        WrongAns=new JButton("Display Mistakes");
+        WrongAns.setBounds(400, 320,200,40);
+        WrongAns.setFont(new Font("Tahoma",Font.PLAIN,18));
+        WrongAns.setBackground(new Color(94, 66, 48));
+        WrongAns.setForeground(Color.white);
+        WrongAns.addActionListener(this);
+        add(WrongAns);
 
         setVisible(true);
         setSize(800,600);
         setLocation(400,150);
+        wa=wrongans;
     }
     public void actionPerformed(ActionEvent ae){
-        setVisible(false);
-        new Login();
 
-    }
-    public static void main(String[] args) {
-        new Score("User",0);
+        setVisible(false);
+        if(ae.getSource()==WrongAns) {
+            new DisplayWrongAns(wa);
+        } else if (ae.getSource()==playagain) {
+
+            new Login();
+        }
+
     }
 }

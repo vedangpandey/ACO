@@ -6,6 +6,10 @@ public class Login extends JFrame implements ActionListener{
     JButton rules,exit;JTextField tfname;
         Login(){
             getContentPane().setBackground(Color.WHITE);
+            ImageIcon img=new ImageIcon(ClassLoader.getSystemResource("icons/score.png"));
+            setIconImage(img.getImage());
+            setResizable(false);
+
             setSize(1200,600);
             setLocation(200,100);
             ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/login.png"));
@@ -63,5 +67,4 @@ public class Login extends JFrame implements ActionListener{
             setVisible(false);
         }
     }
-
 }
